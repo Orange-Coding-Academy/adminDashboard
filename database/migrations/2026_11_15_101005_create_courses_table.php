@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+              $table->foreignId('lecturer_id')->constrained('lecturers')->cascadeOnDelete();
+              $table->integer('course-code')->unique();
+             $table->text('title');
+             $table->integer('credit_hours');
+              $table->text('semester');
+              
             $table->timestamps();
         });
     }

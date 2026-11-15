@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->id();
-            
+            $table->foreignId('user_id')->unique()->constrained()->onDelete('cascade');  
+	        $table->integer('employee_number');
+             $table->string('dapartment');
+              $table->integer('office_room');
+              $table->string('image')->nullable();
+              $table->boolean('isActive');
+             
             $table->timestamps();
         });
     }
